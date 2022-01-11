@@ -16,12 +16,10 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
-
 .outer-container {
   height: 100vh;
   position: relative;
 }
-
 .main-container {
   position: absolute;
   width: 100%;

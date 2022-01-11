@@ -6,13 +6,16 @@ import "./Config.css";
 const Config = () => {
   const [fizz, setFizz] = useState("");
   const [buzz, setBuzz] = useState("");
-  const [timerLink, setTimerLink] = useState("");
+  const [valid, setValid] = useState(false);
+  const [timerLink, setTimerLink] = useState("/timer");
 
+  //Sets up parameters for timer route
   useEffect(() => {
     if (fizz >= 2 && fizz <= 10 && buzz >= 2 && buzz <= 10) {
+      setValid(true);
       setTimerLink(`/timer?fizz=${fizz}&buzz=${buzz}`);
     } else {
-      setTimerLink("");
+      setTimerLink("/timer");
     }
   }, [fizz, buzz]);
 
@@ -24,6 +27,11 @@ const Config = () => {
       : (e) => {
           setBuzz(e.target.value);
         };
+  };
+
+  //Prevent link out when fizz and buzz dont satisfy requirements
+  const preventLink = (event) => {
+    event.preventDefault();
   };
   return (
     <div className="outer-container">
@@ -38,18 +46,35 @@ const Config = () => {
             value={fizz}
             onChange={handleChange("fizz")}
             className="config-fizz"
+            data-testid="fizz-input"
           ></input>
           <label>Buzz: </label>
           <input
             value={buzz}
             onChange={handleChange("buzz")}
             className="config-buzz"
+            data-testid="buzz-input"
           ></input>
-          <Link to={timerLink}>
-            <button type="submit" className="button-link config-submit">
+          {
+            //No link if invalid fizz buzz, if valid, generates route with parameters
+            valid && (
+              <Link to={timerLink} data-testid="link">
+                <button type="submit" className="button-link config-submit">
+                  Go to Timer &gt;
+                </button>
+              </Link>
+            )
+          }
+          {!valid && (
+            <button
+              type="submit"
+              onClick={preventLink}
+              className="button-link config-submit"
+              data-testid="no-link"
+            >
               Go to Timer &gt;
             </button>
-          </Link>
+          )}
         </form>
       </div>
     </div>

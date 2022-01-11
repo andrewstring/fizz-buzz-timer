@@ -4,7 +4,6 @@
   top: 20px;
   left: 20px;
 }
-
 .timer-main h1 {
   font-size: 30px;
   margin-top: 0px;
@@ -28,7 +27,6 @@
   font-weight: bold;
   cursor: pointer;
 }
-
 .timer-counter-container {
   font-size: 30px;
   font-weight: bold;
@@ -39,7 +37,6 @@
   padding: 28px;
   margin: 0px auto 50px;
 }
-
 .timer-fizzbuzz {
   margin-top: 65px;
   font-size: 80px;

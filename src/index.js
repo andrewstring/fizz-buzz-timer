@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { Config, Timer } from "./Pages";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Config />} />
+      <Route path="/" element={<Navigate to="/config" />}></Route>
+      <Route path="/config" element={<Config />} />
       <Route path="/timer" element={<Timer />} />
     </Routes>
   </BrowserRouter>,

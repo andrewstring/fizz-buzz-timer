@@ -7,6 +7,7 @@ const Timer = () => {
   const useQuery = () => {
     const { search } = useLocation();
 
+    //Utilizes memoization for url parameters
     return useMemo(() => {
       return new URLSearchParams(search);
     }, [search]);
@@ -21,6 +22,7 @@ const Timer = () => {
   const [active, setActive] = useState(false);
   const [intervalID, setIntervalID] = useState(null);
 
+  //timer logic
   const reset = () => {
     setSeconds(0);
     setActive(false);
@@ -51,6 +53,7 @@ const Timer = () => {
     }
   }, [active]);
 
+  //Timer and Fizz Buzz display logic
   useEffect(() => {
     const hoursNum = Math.floor(seconds / 3600);
     const hoursDisplay = hoursNum.toString();
@@ -90,9 +93,9 @@ const Timer = () => {
   }, [seconds]);
 
   return (
-    <div className="outer-container">
+    <div data-testid="timer-main" className="outer-container">
       <div className="timer-top-left">
-        <Link to="/">
+        <Link to="/config">
           <button className="button-link">&lt; Set Times</button>
         </Link>
       </div>
