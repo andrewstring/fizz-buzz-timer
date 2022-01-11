@@ -1,0 +1,48 @@
+.timer-top-left {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.timer-main h1 {
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+.timer-main button.start {
+  background-color: #5ccc87;
+  margin-right: 30px;
+}
+.timer-main button.stop-reset {
+  background-color: #e66666;
+}
+.timer-button button {
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.timer-counter-container {
+  font-size: 30px;
+  font-weight: bold;
+  border: 2px solid #707070;
+  border-radius: 5px;
+  width: 640px;
+  background-color: #f5f5f5;
+  padding: 28px;
+  margin: 0px auto 50px;
+}
+
+.timer-fizzbuzz {
+  margin-top: 65px;
+  font-size: 80px;
+  font-weight: bold;
+  height: 80px;
+}
